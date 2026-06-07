@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 style="color: blue; font-family: Verdana, Geneva, Tahoma, sans-serif;">Message Box</h2>
+
+<p>200 characters max</p>
+
+<textarea id="msg" rows="5" cols="30"></textarea>
+
+<p id="count">0/200 characters</p>
+
+<p id="warning" style="color:red"></p>
+
+<script>
+
+var max = 200;
+
+document.getElementById("msg").onkeyup = function(){
+
+    var text = document.getElementById("msg").value;
+    var len = text.length;
+
+    if(len > max){
+        document.getElementById("msg").value = text.substring(0, max);
+        len = max;
+        document.getElementById("warning").innerHTML =
+        "Character limit reached!";
+    }
+    else{
+        document.getElementById("warning").innerHTML = "";
+    }
+
+    document.getElementById("count").innerHTML =
+    len + "/" + max + " characters";
+
+}
+
+</script>
+
+</body>
+</html>
